@@ -45,14 +45,12 @@ lvim.builtin.which_key.mappings["C"] = {
 
 -- treesitter
 vim.opt.termguicolors = true
-
-
+vim.api.nvim_set_keymap('n','<C-t>',':NvimTreeOpen<CR>',{noremap=true})
 -- vim settings
 vim.cmd([[set relativenumber]])
 vim.opt.clipboard='unnamedplus'
 
+-- clipbooard
 vim.api.nvim_set_keymap("v",'y','"+y',{noremap=true})
-
-
-
+vim.api.nvim_set_keymap("n",'<CR>','o',{noremap=true})
 
