@@ -10,7 +10,8 @@ lvim.plugins = {
   'mfussenegger/nvim-dap-python',
   'aserowy/tmux.nvim',
   'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons'
+  'nvim-tree/nvim-web-devicons',
+  'pappasam/nvim-repl'
 }
 
 
@@ -52,5 +53,14 @@ vim.opt.clipboard='unnamedplus'
 
 -- clipbooard
 vim.api.nvim_set_keymap("v",'y','"+y',{noremap=true})
+-- enter para linha de baixo
 vim.api.nvim_set_keymap("n",'<CR>','o',{noremap=true})
 
+-- repl
+
+vim.g.repl_filetype_commands = {python = "ipython3"}
+-- Mapeamentos
+vim.api.nvim_set_keymap('n', '<leader>rt', ':ReplToggle<CR>', { silent = true ,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rc', ':ReplRunCell<CR>', { silent = true ,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rr', '<Plug>ReplSendLine', {noremap=true})
+vim.api.nvim_set_keymap('x', '<leader>rr', '<Plug>ReplSendVisual', {noremap=true})
